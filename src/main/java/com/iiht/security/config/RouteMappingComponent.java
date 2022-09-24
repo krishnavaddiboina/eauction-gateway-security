@@ -36,9 +36,9 @@ public class RouteMappingComponent {
 	@Bean
 	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
 		return builder.routes().route(AppConstants.SELLER_SERVICE_KEY,
-				r -> r.path("/e-auction/api/v1/**").filters(f -> f.stripPrefix(3)).uri("http://localhost:8081"))
+				r -> r.path("/e-auction/api/v1/**").filters(f -> f.stripPrefix(3)).uri("https://eauction-seller.azurewebsites.net"))
 				.route(AppConstants.BUYER_SERVICE_KEY, r -> r.path("/e-auction/api/v1/**")
-						.filters(f -> f.stripPrefix(3)).uri("http://localhost:8082"))
+						.filters(f -> f.stripPrefix(3)).uri("https://eauction-buyer.azurewebsites.net"))
 				.build();
 	}
 }
